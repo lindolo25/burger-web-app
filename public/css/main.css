@@ -1,0 +1,19 @@
+ul.burger-list { padding: 0; list-style: none; }
+
+ul.burger-list li 
+{ 
+    background-color: burlywood; 
+    border: 1px solid saddlebrown;
+    padding: 3px 10px;
+    border-radius: .25rem !important;
+    margin-bottom: .25rem !important;
+    cursor: pointer;
+}
+
+ul.devoured li
+{
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+    cursor: default;
+}

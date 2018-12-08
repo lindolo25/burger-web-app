@@ -4,7 +4,11 @@ var router = Express.Router();
 
 router.get('/', function (req, res) 
 {
-    res.send('Home Page');
+    var burgersResult = {
+        burgers: [{burger_name: "Cheeseburger"}],
+        devoured: []
+    }
+    res.render('index', burgersResult);
 });
 
 router.post('/api/burgers', function (req, res) 
