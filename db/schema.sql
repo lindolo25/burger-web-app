@@ -1,17 +1,13 @@
-drop database animals_db;
+DROP DATABASE IF EXISTS burgers_db;
 
-drop database favorite_db;
+CREATE DATABASE burgers_db;
 
-drop database greatbay_db;
+USE burgers_db
 
-drop database ice_creamdb;
+CREATE TABLE burgers (
+    burger_id INT NOT NULL AUTO_INCREMENT,
+    burger_name VARCHAR(255) NOT NULL,
+    devoured BOOLEAN NOT NULL DEFAULT 0,
+    PRIMARY KEY (burger_id)
+);
 
-drop database playlist_db;
-
-drop database programing_db;
-
-drop database seinfeld_db;
-
-drop database task_saver_db;
-
-drop database wizard_schools_db;
