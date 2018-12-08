@@ -10,6 +10,8 @@ const port = process.env.PORT || 3000;
 var app = Express();
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use("/assets",Express.static("public"));
 app.use(burgerController);
 

@@ -1,14 +1,24 @@
-var Express = require("express");
+const Express = require("express");
+const orm = require("../config/orm");
 var router = Express.Router();
 
 
 router.get('/', function (req, res) 
 {
-    var burgersResult = {
-        burgers: [{burger_name: "Cheeseburger"}],
-        devoured: []
-    }
-    res.render('index', burgersResult);
+    orm.selectAll(function(result)
+    {
+        var burgersResult = {
+            burgers: [],
+            devoured: []
+        }
+        
+        if(result)
+        {
+            burgersResult.burgers = resul.filter( burger => !burger.devoured );
+            burgersResult.devoured = resul.filter( burger => burger.devoured );
+        }
+        res.render('index', burgersResult);
+    });    
 });
 
 router.post('/api/burgers', function (req, res) 
