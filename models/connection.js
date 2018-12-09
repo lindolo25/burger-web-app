@@ -31,10 +31,10 @@ var connObj = {
     open: function(cb)
     {   
         conn = mysql.createConnection({
-            host     : process.env.MYSQL_HOST,
-            user     : process.env.MYSQL_USER,
-            password : process.env.MYSQL_PASS,
-            database : process.env.MYSQL_DB
+            host     : process.env.MYSQL_HOST || "localhost",
+            user     : process.env.MYSQL_USER || "root",
+            password : process.env.MYSQL_PASS || "",
+            database : process.env.MYSQL_DB || "burgers_db"
         });
         conn.connect(cb)
     },
