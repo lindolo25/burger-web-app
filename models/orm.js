@@ -8,16 +8,24 @@ var orm = {
         {
             if(error)
             {
-                console.log("Query error.");
+                console.log("Query error:" + error.stack);
                 cb(null);
             }
             else cb(result);
         });
     },
 
-    insertOne: function(id, cb)
+    insertOne: function(burgerName, cb)
     {
-        throw new Error("No Implemented Exeption.");
+        conn.query("INSERT INTO burgers (burger_name) VALUES (?)", [burgerName], function(error, result)
+        {
+            if(error)
+            {
+                console.log("Query error:" + error.stack);
+                cb(null);
+            }
+            else cb(result);
+        });
     },
 
     updateOne: function(id, cb)
@@ -26,7 +34,7 @@ var orm = {
         {
             if(error)
             {
-                console.log("Query error.");
+                console.log("Query error:" + error.stack);
                 cb(null);
             }
             else cb(result);
