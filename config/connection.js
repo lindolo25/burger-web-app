@@ -22,7 +22,7 @@ var connObj = {
 
             conn.query(query, params, function (error, results)
             {
-                this.close();
+                connObj.close();
                 cb(error, results);
             })
         });

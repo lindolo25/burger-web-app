@@ -14,8 +14,8 @@ router.get('/', function (req, res)
         
         if(result)
         {
-            burgersResult.burgers = resul.filter( burger => !burger.devoured );
-            burgersResult.devoured = resul.filter( burger => burger.devoured );
+            burgersResult.burgers = result.filter( burger => !burger.devoured );
+            burgersResult.devoured = result.filter( burger => burger.devoured );
         }
         res.render('index', burgersResult);
     });    
