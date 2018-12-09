@@ -15,14 +15,22 @@ var orm = {
         });
     },
 
-    insertOne: function(id)
+    insertOne: function(id, cb)
     {
         throw new Error("No Implemented Exeption.");
     },
 
-    updateOne: function(id)
+    updateOne: function(id, cb)
     {
-        throw new Error("No Implemented Exeption.");
+        conn.query("UPDATE burgers SET devoured = ? WHERE burger_id = ?", [true, id], function(error, result)
+        {
+            if(error)
+            {
+                console.log("Query error.");
+                cb(null);
+            }
+            else cb(result);
+        });
     }
 }
 

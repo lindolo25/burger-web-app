@@ -26,9 +26,16 @@ router.post('/api/burgers', function (req, res)
     res.send('About birds');
 });
 
-router.post('/api/burgers/:id', function (req, res) 
+router.put('/api/burgers/:id', function (req, res) 
 {
-    res.send('About birds');
+    if(req.params.id && req.body.devoured)
+    {
+        orm.updateOne(req.params.id, function(result)
+        {
+            result ? res.json(true) : res.json(false);
+        })
+    }
+    else res.json(false);
 });
 
 module.exports = router;
